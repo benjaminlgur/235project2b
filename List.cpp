@@ -4,7 +4,7 @@
 //
 //  Created by Tiziana Ligorio on 10/21/18.
 //  Copyright © 2018 Tiziana Ligorio. All rights reserved.
-//
+//  Edited for CSCI 235 project 2b by Benjamin Gur
 
 #include "List.hpp"
 
@@ -266,38 +266,38 @@ void List<T>::traverse()
 }
 
 
-//custom function for project 2b
+//custom function for project 2b for CSCI 235
 template<class T>
 List<T> List<T>::scanSublist(size_t position){
     List new_list; //List to be returned
 
-    if (position > item_count_){ 
+    if (position > item_count_){ //In case where pos is greater that the amount of items.
         return new_list;
     }
     
-    Node<int>* cursor = getPointerTo(position);
+    Node<int>* cursor = getPointerTo(position); 
 
-    new_list.insert(0 ,cursor->getItem());
+    new_list.insert(0 ,cursor->getItem());  //setting inital item
 
-    if(position >= (item_count_ - 1)){
+    if(position >= (item_count_ - 1)){ //in the case of item at end of list.
         return new_list;
     }
 
-    while(cursor->getPrevious()->getItem() <= cursor->getItem() && cursor->getPrevious() != nullptr){
+    while(cursor->getPrevious()->getItem() <= cursor->getItem() && cursor->getPrevious() != nullptr){ //While loop for backwards search
         cursor = cursor->getPrevious();
         new_list.insert(0, cursor->getItem());
         if (cursor->getPrevious() == nullptr){
             break;
         }
     }
-    cursor = getPointerTo(position);
-    while(cursor->getNext()->getItem() >= cursor->getItem() && cursor->getNext() != nullptr){
+    cursor = getPointerTo(position); //reseting cursor
+    while(cursor->getNext()->getItem() >= cursor->getItem() && cursor->getNext() != nullptr){ //While loop for front search
         cursor = cursor->getNext();
         new_list.insert((new_list.item_count_ + 1), cursor->getItem());
         if (cursor->getNext() == nullptr){
             break;
         }
     }
-    return new_list;
+    return new_list; //normal return
     
 }
