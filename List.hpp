@@ -59,9 +59,15 @@ public:
      @post traverses the list and prints (std::cout) every item in the list*/
     void traverse();
 
+   
+   
+   
+    //Custom function for project 2b of assigned specs
+    List<T> scanSublist(size_t position);
 
 
-private:
+
+//private:
     Node<T>* first_;      // Pointer to first node
     Node<T>* last_;       // Pointer to last node
     size_t item_count_;    // number of items in the list

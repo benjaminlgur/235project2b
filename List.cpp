@@ -264,3 +264,24 @@ void List<T>::traverse()
     }
     std::cout << std::endl;
 }
+
+
+//custom function for project 2b
+template<class T>
+List<T> List<T>::scanSublist(size_t position){
+    List new_list; //List to be returned
+    
+    Node<int>* cursor = getPointerTo(position);
+
+    new_list.insert(0 ,cursor->getItem());
+    while(cursor->getPrevious()->getItem() <= cursor->getItem() && cursor->getPrevious() != nullptr){
+        cursor = cursor->getPrevious();
+        new_list.insert(0, cursor->getItem());
+        if (cursor->getPrevious() == nullptr){
+            break;
+        }
+    }
+    return new_list;
+    
+
+}
