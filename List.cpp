@@ -281,7 +281,14 @@ List<T> List<T>::scanSublist(size_t position){
             break;
         }
     }
+    cursor = getPointerTo(position);
+    while(cursor->getNext()->getItem() >= cursor->getItem() && cursor->getNext() != nullptr){
+        cursor = cursor->getNext();
+        new_list.insert((new_list.item_count_ + 1), cursor->getItem());
+        if (cursor->getNext() == nullptr){
+            break;
+        }
+    }
     return new_list;
     
-
 }

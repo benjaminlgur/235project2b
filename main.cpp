@@ -16,7 +16,7 @@ int main(){
     std::cout << "\n" << test_list.getPointerTo(3)->getItem() << std::endl;
     
 
-    List<int> return_list = test_list.scanSublist(3);
+    List<int> return_list = test_list.scanSublist(1);
     return_list.traverse();
     
 }
