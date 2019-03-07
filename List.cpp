@@ -270,10 +270,19 @@ void List<T>::traverse()
 template<class T>
 List<T> List<T>::scanSublist(size_t position){
     List new_list; //List to be returned
+
+    if (position > item_count_){ 
+        return new_list;
+    }
     
     Node<int>* cursor = getPointerTo(position);
 
     new_list.insert(0 ,cursor->getItem());
+
+    if(position >= (item_count_ - 1)){
+        return new_list;
+    }
+
     while(cursor->getPrevious()->getItem() <= cursor->getItem() && cursor->getPrevious() != nullptr){
         cursor = cursor->getPrevious();
         new_list.insert(0, cursor->getItem());
