@@ -9,7 +9,7 @@
 #include "List.hpp"
 
 template<class T>
-List<T>::List(): item_count_(0), first_(nullptr), last_(nullptr){} // constructor 
+List<T>::List(): item_count_(0), first_(nullptr), last_(nullptr){} // constructor
 
 
 //copy constructor
